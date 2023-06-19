@@ -1,26 +1,34 @@
 /**
  * Represents a 2D vector.
- * @class
  */
 class Vector {
+  /**
+   * The x-coordinate of the vector.
+   */
+  x: number;
+
+  /**
+   * The y-coordinate of the vector.
+   */
+  y: number;
+
   /**
    * Construct a new vector.
    * @param {number} x - The x-coordinate of the vector.
    * @param {number} y - The y-coordinate of the vector.
    */
-  constructor(x, y) {
+  constructor(x: number, y: number) {
     this.x = x;
     this.y = y;
   }
 
   /**
    * Creates a new vector.
-   * @static
    * @param {number} x - The x-coordinate of the vector.
    * @param {number} y - The y-coordinate of the vector.
    * @returns {Vector} The created vector.
    */
-  static of(x, y) {
+  static of(x: number, y: number): Vector {
     return new Vector(x, y);
   }
 
@@ -29,7 +37,7 @@ class Vector {
    * @param {Vector} vector - The vector to add.
    * @returns {Vector} The resulting vector.
    */
-  add(vector) {
+  add(vector: Vector): Vector {
     return new Vector(this.x + vector.x, this.y + vector.y);
   }
 
@@ -38,7 +46,7 @@ class Vector {
    * @param {Vector} vector - The vector to subtract.
    * @returns {Vector} The resulting vector.
    */
-  subtract(vector) {
+  subtract(vector: Vector): Vector {
     return new Vector(this.x - vector.x, this.y - vector.y);
   }
 
@@ -47,7 +55,7 @@ class Vector {
    * @param {number} scalar - The scalar value to multiply.
    * @returns {Vector} The resulting vector.
    */
-  multiply(scalar) {
+  multiply(scalar: number): Vector {
     return new Vector(this.x * scalar, this.y * scalar);
   }
 
@@ -55,7 +63,7 @@ class Vector {
    * Calculates the length of the vector.
    * @returns {number} The length of the vector.
    */
-  length() {
+  length(): number {
     return Math.sqrt(this.x * this.x + this.y * this.y);
   }
 
@@ -63,7 +71,7 @@ class Vector {
    * Calculates the unit vector of the current vector.
    * @returns {Vector} The unit vector.
    */
-  unit() {
+  unit(): Vector {
     const len = this.length();
     if (len === 0) {
       return new Vector(0, 0);
@@ -75,15 +83,9 @@ class Vector {
    * Calculates the direction angle (in radians) of the current vector.
    * @returns {number} The direction angle in radians.
    */
-  direction() {
+  direction(): number {
     return Math.atan2(this.y, this.x);
   }
 }
 
-/**
- * Exports the Vector module.
- * @module
- */
-module.exports = {
-  Vector
-};
+export { Vector };

@@ -1,5 +1,4 @@
-require = require('esm')(module /*, options*/);
-const { Vector } = require('./vector.js');
+import { Vector } from './vector';
 
 /**
  * Constructs a vector with the given coordinates.
@@ -7,7 +6,7 @@ const { Vector } = require('./vector.js');
  * @param {number} y - The y-coordinate of the vector.
  * @returns {Vector} The constructed vector.
  */
-const constructVector = (x, y) => {
+const constructVector = (x: number, y: number): Vector => {
   return new Vector(x, y);
 };
 
@@ -16,22 +15,22 @@ const constructVector = (x, y) => {
  * @param {string} message - The message to display.
  * @param {Vector} vector - The vector to print.
  */
-const printVector = (message, vector) => {
+const printVector = (message: string, vector: Vector) => {
   console.log(message, JSON.stringify(vector));
 };
 
 // Constructing a vector
-const a = constructVector(1, 2);
+const a: Vector = constructVector(1, 2);
 printVector("Constructing a vector", a);
 
 // Another possible way to construct a vector
-const b = Vector.of(2, 0.5);
+const b: Vector = Vector.of(2, 0.5);
 printVector("Another possible way to construct a vector", b);
 
 // Adding vectors
-const sum = a.add(b);
+const sum: Vector = a.add(b);
 printVector("Adding vectors", sum);
 
 // Calculating vector length
-const abs = sum.length();
+const abs: number = sum.length();
 console.log("Calculating vector length", abs);
